@@ -1,4 +1,4 @@
-
+import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -52,7 +52,7 @@ export default class App extends React.Component<{}, IState>{
 
   
     public render() {
-      const styleobj = { background: "white", fontSize: 64 }
+      const fontSize = { background: "white", fontSize: 64 }
       return (
         
           <div className="centreText">
@@ -62,9 +62,10 @@ export default class App extends React.Component<{}, IState>{
                     
               </label>
               
-              
+             
+        <Button variant="outlined" size="small" color="primary" >  
         <input type="submit" value="Submit" />
-      
+        </Button>
         </form>
         
             {
@@ -73,7 +74,7 @@ export default class App extends React.Component<{}, IState>{
                <Card >
                <CardContent>
                <Typography component="h1">
-                <section style={styleobj}>
+                <section style={fontSize}>
                 <h2 className="tryout" style={{fontSize: 50+'px'}}>{}</h2>
                 <input value={this.state.results}/>
                 </section>
