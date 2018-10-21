@@ -1,7 +1,9 @@
 
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import Typography from '@material-ui/core/Typography';
 import * as React from 'react';
 import './App.css';
-
 interface IState {
   userInput: any,
   results: any,
@@ -36,7 +38,7 @@ export default class App extends React.Component<{}, IState>{
         this.setState({results: response.statusText})
       }
       else {
-        response.json().then((data:any) => this.setState({results: data.main.temp})) /*response from api call */
+        response.json().then((data:any) => this.setState({results: data.main.temp + " °C"})) /*response from api call */
       }
       return response
       
@@ -50,10 +52,9 @@ export default class App extends React.Component<{}, IState>{
 
   
     public render() {
-
+      const styleobj = { background: "white", fontSize: 64 }
       return (
-
-
+        
           <div className="centreText">
             <form onSubmit={this.weatherAPI}>
                 <label>
@@ -67,8 +68,22 @@ export default class App extends React.Component<{}, IState>{
         </form>
         
             {
-              <p>{this.state.results}</p>
+             
+               <div style={{alignItems:'center'}}>
+               <Card >
+               <CardContent>
+               <Typography component="h1">
+                <section style={styleobj}>
+                <h2 className="tryout" style={{fontSize: 50+'px'}}>{}</h2>
+                <input value={this.state.results}/>
+                </section>
+                 </Typography >
+                 </CardContent>
+                 </Card>
+                 </div>
             }
+
+        
             </div>
           
 
